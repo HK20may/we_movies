@@ -1,0 +1,59 @@
+name: wework_movies_app
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #core packages
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
+  dio: ^5.4.3+1
+  intl: ^0.19.0
+  connectivity_plus: ^5.0.2
+
+  #ui
+  gap: ^3.0.1
+  fluttertoast: ^8.2.4
+  flutter_svg: ^2.0.10+1
+  shimmer: ^3.0.0
+  lottie: ^3.1.0
+  flutter_spinkit: ^5.2.1
+  cached_network_image: ^3.3.1
+
+  #plugins
+  geocoding: ^3.0.0
+  geolocator: ^11.0.0
+
+  cupertino_icons: ^1.0.6
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/lottie/
+    - assets/icons/
+
+  fonts:
+    - family: PlusJakartaSans
+      fonts:
+        - asset: assets/fonts/PlusJakartaSans-Regular.ttf
+        - asset: assets/fonts/PlusJakartaSans-Medium.ttf
+        - asset: assets/fonts/PlusJakartaSans-Bold.ttf
+
