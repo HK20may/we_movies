@@ -1,16 +1,100 @@
-# wework_movies_app
+# We Movies
 
-A new Flutter project.
+This is a Flutter application that allows users to browse and search for movies. It fetches movie data from an API and displays it in two sections: "Now Playing" and "Top Rated." The app also provides features such as location-based address fetching, search functionality, pagination, offline caching, and pull-to-refresh.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Project Setup
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To get started, you will need to have Flutter installed on your machine. You can find instructions on how to install Flutter [here](https://docs.flutter.dev/get-started/install)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+  Flutter pub get
+```
+
+
+## Project Setup
+
+Clone the project
+
+```bash
+  git clone https://github.com/HK20may/we_movies.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Get dependencies
+
+```bash
+  flutter pub get
+```
+
+Generate files
+
+```bash
+  flutter run build_runner build --delete-conflicting-outputs
+```
+
+Run the app
+
+```bash
+  flutter run
+```
+
+
+## Project Overview
+
+<p>
+  <img src="https://github.com/HK20may/we_movies/blob/master/assets/ss/splash.png" height= 400 width= 200 hspace="1"/>
+  <img src="https://github.com/HK20may/we_movies/blob/master/assets/ss/location.png" height= 400 width= 200 hspace="1"/>
+  <img src="https://github.com/HK20may/we_movies/blob/master/assets/ss/home_1.png" height= 400 width= 200 hspace="1"/>
+  <img src="https://github.com/HK20may/we_movies/blob/master/assets/ss/home_2.png" height= 400 width= 200 hspace="1"/>
+</p>
+
+
+## Features
+
+- **Fetching Location**: Fetching user location and reverse geocoding to get the user's primary and secondary address.
+- **Now Playing Movies**: Displays a paginated list of currently playing movies.
+- **Top Rated Movies**: Displays a paginated list of top-rated movies.
+- **Local Search**: Filters movies based on search text.
+- **Pagination: Supports loading additional pages of movies in both sections.
+- **Offline Caching**: Stores fetched movie data for subsequent offline access.
+- **Pull-to-Refresh**: Refreshes movie listings.
+- **Error Handling**: Displays appropriate error messages in case of search failures or network issues.
+
+## Folder Structure
+
+```bash
+app
+├── android
+├── ios
+├── assets
+├── ios
+├── lib
+│   ├── core
+│   │   ├── app_components
+│   │   ├── helpers
+│   │   ├── utils
+│   │   ├── web_services
+│   │   ├── widgets
+│   ├── database
+│   │   ├── shared_preference
+│   ├── feature
+│   │   ├── home
+│   │   |  ├── cubit
+│   │   |  ├── data
+│   │   |  ├── presentation
+│   we_work_app.dart
+│   main.dart
+├── test
+├── README.MD
+├── pubspec.yaml
+└── .gitignore
+```
+
+
