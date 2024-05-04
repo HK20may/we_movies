@@ -33,7 +33,7 @@ class TotalMoviesPlayingNowWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Gap(52),
+                    const Gap(40),
                     const Text(
                       StringConstants.weMovies,
                       style:

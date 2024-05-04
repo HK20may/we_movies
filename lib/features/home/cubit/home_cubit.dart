@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wework_movies_app/core/helpers/logger/error_reporter.dart';
-import 'package:wework_movies_app/core/helpers/shared_preference/pref_helper.dart';
-import 'package:wework_movies_app/core/helpers/shared_preference/pref_keys.dart';
+import 'package:wework_movies_app/database/shared_preference/pref_helper.dart';
+import 'package:wework_movies_app/database/shared_preference/pref_keys.dart';
 import 'package:wework_movies_app/core/utils/we_movies_utils.dart';
 import 'package:wework_movies_app/features/home/data/models/image_configuration.dart';
 import 'package:wework_movies_app/features/home/data/models/now_playing_movies.dart';
