@@ -8,19 +8,16 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ClipPath(
-        clipper: const _CustomContainerClipper(inset: 70, radius: 24),
+        clipper: const _CustomContainerClipper(),
         child: child,
       );
 }
 
 class _CustomContainerClipper extends CustomClipper<Path> {
-  const _CustomContainerClipper({
-    required this.inset,
-    required this.radius,
-  });
+  const _CustomContainerClipper();
 
-  final double inset;
-  final double radius;
+  final double inset = 70;
+  final double radius = 24;
 
   @override
   Path getClip(Size size) {

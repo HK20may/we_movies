@@ -46,11 +46,13 @@ class ToastMessage {
                     AppAssets.alertRed,
                     width: 24,
                   )),
-            Text(msg,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: msgColor,
-                    fontWeight: FontWeight.w500)),
+            Flexible(
+              child: Text(msg,
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: msgColor,
+                      fontWeight: FontWeight.w500)),
+            ),
           ],
         ),
       ),

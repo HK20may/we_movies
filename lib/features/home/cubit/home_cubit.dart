@@ -45,6 +45,7 @@ class HomeCubit extends Cubit<HomeState> {
   bool _shouldPausePaginationForNowPlaying = false;
   bool _shouldPausePaginationForTopRated = false;
 
+  /// fetching all movies data concurrently
   Future<void> fetchMoviesData() async {
     emit(HomeLoading());
     try {
@@ -60,6 +61,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  ///fetching now playing movies data
   Future<void> _getNowPlayingMovies() async {
     try {
       if (PrefHelper.getJson(PrefKeys.NOW_PLAYING_MOVIES, null) != "" &&
@@ -78,6 +80,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  ///fetching top rated movies data
   Future<void> _getTopRatedMovies() async {
     try {
       if (PrefHelper.getJson(PrefKeys.TOP_RATED_MOVIES, null) != "" &&
@@ -96,6 +99,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  /// fetches image configuration of the movies
   Future<void> _getImageConfiguration() async {
     try {
       if (PrefHelper.getJson(PrefKeys.CONFIGURATION, null) != "" &&
@@ -120,6 +124,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  /// updates the poster url and backdrop url of the movies
   void _updatePosterUrl() {
     for (var result in nowPlayingMoviesList) {
       result.posterPath = (baseImageUrl ?? "") + result.posterPath!;
@@ -129,6 +134,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  /// fetches now playing movies by pagination
   Future<void> getPaginationNowPlayingMovies() async {
     if ((_shouldPausePaginationForNowPlaying || _isAlreadyFetchingNowPlaying)) {
       return;
@@ -159,6 +165,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeInitial());
   }
 
+  /// fetches top rated movies by pagination
   Future<void> getPaginationTopRatedMovies() async {
     if ((_shouldPausePaginationForTopRated || _isAlreadyFetchingTopRated)) {
       return;
@@ -190,12 +197,12 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeInitial());
   }
 
+  /// filtering of results based on search queries
   void filterMovies(String query) {
     emit(HomeLoading());
     if (query.isEmpty) {
       isSearching = false;
     } else {
-      // Filter movies based on the search query
       isSearching = true;
       searchedNowPlayingMoviesList = nowPlayingMoviesList
           .where((movie) =>

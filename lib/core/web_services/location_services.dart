@@ -1,13 +1,14 @@
-import 'dart:developer';
+import 'dart:async';
 
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:wework_movies_app/core/helpers/logger/error_reporter.dart';
 
 class LocationServices {
   static String mainAddress = '';
   static String secondaryAddress = '';
 
-  static Future<void> fetchUserLocation() async {
+  static Future<bool> fetchUserLocation() async {
     try {
       // Request permission to access location
       LocationPermission permission = await Geolocator.requestPermission();
@@ -15,8 +16,8 @@ class LocationServices {
       if (permission == LocationPermission.denied ||
           permission == LocationPermission.deniedForever) {
         // Handle permission denied
-        await Geolocator.openAppSettings();
-        return;
+        // await Geolocator.openAppSettings();
+        return false;
       }
 
       // Get the current user's position
@@ -36,8 +37,10 @@ class LocationServices {
         secondaryAddress =
             '${placemark.administrativeArea}, ${placemark.country}';
       }
-    } catch (e) {
-      log('Error: $e');
+      return true;
+    } catch (e, st) {
+      ErrorReporter.error(e, stackTrace: st, errorMsg: "❌ Error: ");
+      return false;
     }
   }
 }
